@@ -1,0 +1,67 @@
+<h1>Make Order</h1>
+
+ <!--<div class="mb-3">
+  <label for="" class="form-label"> ViewChild</label>
+  <input #ViewChild type="text"  class="form-control"   placeholder="ViewChild" value="this is my ViewChild">
+</div>-->
+<br>
+
+<div class="mb-3">
+  <label for="" class="form-label">Select Category</label>
+  <select class="form-control" name="cat" id="CatSel" title="catgory"   [(ngModel)]="selectedID" >
+    <option value="0">Select All</option>
+    <option *ngFor="let cat of catList" [value]="cat.ID">{{cat.Name}}</option>
+  </select>
+</div>
+<div class="bg-danger">
+ 
+</div>
+<hr>
+<div class="bg-warning">
+  <app-products [receivedSelCatID]="selectedID" 
+    (TotalPrice)="updateTotalPrice($event)"
+    (PrdName)="sendName ($event)"
+    (prdPrice)="sendPrice ($event)"
+    (prdImg)="sendImg ($event)"
+    (prdQuan)="sendQun($event)"
+    (newItemEvent)="getOrder($event)"
+    ></app-products>
+</div>
+
+ <br>
+
+<div class="container">
+  <table class="table">
+      <thead class="bg-dark" style="color: white;">
+        <tr>
+         
+          <th scope="col">Name </th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Cancel</th>
+          
+        </tr>
+      </thead>
+      <tbody   >
+        <tr *ngFor="let item of Cart ; let i = index;" >
+        <th scope="col">{{item.PrdName}} </th>
+        <th scope="col">{{item.PrdPrice}}</th>
+        <th scope="col">{{item.PrdQuantaty}}</th>
+       
+        <th scope="col"><button type="button" class="btn btn-danger" (click)="RemoveItem(item)">Remove</button></th>
+      </tr>
+      </tbody>
+  </table>
+  </div>
+ <br>
+  <h2>
+    Order Total Price: {{ receivedOrderTotalPrice | currency}}
+    
+  
+  </h2>
+
+  <br>
+ 
+
+
+

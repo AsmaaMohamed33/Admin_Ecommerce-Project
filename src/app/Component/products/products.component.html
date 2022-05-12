@@ -1,0 +1,103 @@
+
+ <!---<br>
+  <div class="mb-3">
+  <select class="form-control" [(ngModel)]="SelectedCatID" (change)="selectCat()">
+    <option value="0">Select All</option>
+    <option *ngFor="let Cat of CategoryInfo" [value]="Cat.ID" > {{Cat.Name}} </option>
+  </select>
+</div> --->
+
+<br>
+<a name="" id="" class="btn btn-primary m-2"  [routerLink]="['/NewProduct']" role="button">Add Product</a>
+
+<br>
+<div class="container" style="background-color: white;" >
+<table [hidden]="!ISTableShow" class="table" style="background-color: white;border: 2px red;">
+    <thead class="bg-dark" style="color: white;">
+      <tr >
+        <th scope="col">ID </th>
+        <th scope="col">Name </th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Img</th>
+       <!---- <th scope="col">Store Name</th>-->
+        <td> Date</td>
+        <th scope="col">Details</th>
+        <th scope="col">Updte</th>
+        <th scope="col">Remove</th>
+      </tr>
+      
+    </thead>
+    <tbody style="background-color: white;border: 2px red; background-color:tan;">
+    
+        <tr [hidden]="product.quantity==0" *ngFor="let product of chooseList  ;let i=index "  [style.background-color]="(product.quantity==1)? 'yellow':''" >
+          
+          <th scope="row">{{product.id}}</th>
+          <td>{{product.name}}</td>
+          <td>{{product.price  | currency : 'EGP'}}</td>
+          <td>{{product.quantity}}</td>
+          <td><img [src]="product.img" alt="logo"></td>
+         <!---- <td> {{ StoreInfo.Name}}</td> -->
+         
+          <td>{{todayDate|date}} </td>
+         
+         <!---- <td><a name="" id="" class="btn btn-primary"  role="button" [routerLink]="['/Products', product.id]">Details</a></td>-->
+          <td><button mat-raised-button  (click)="OpenEditDialog ()">Details</button></td>
+           <!--<td><a name="" id="" class="btn btn-primary"  role="button" [routerLink]="['/EditProduct',product.id]">Update</a></td>-->
+         <td><a  class="btn btn-primary"  role="button" [routerLink]="['/EditProduct',product.id]">Edit</a></td>
+        <!----   <td><button mat-raised-button  (click)="OpenEditDialog ()">Edit</button></td>-->
+          
+           <td><button type="button" class="btn btn-secondary" (click)="DeleteProduct(product.id)">Remove</button></td>
+           
+        </tr>
+    </tbody>
+</table>
+</div>
+<br>
+
+<mat-dialog-container *matCellDef="let row">
+  <button style="width: 50px;" mat-icon-button (click)="onEdit(row)">launch</button>
+</mat-dialog-container>
+
+ <!--<div> THe Credit Code IS :  {{cardNamber |creditCard}}</div>
+
+<input type="text" [(ngModel)]="nationalID"   class="form-control" placeholder="Your Name">
+<h3> THe BirthDay IS :  {{nationalID |naionalID}}</h3> -->
+ 
+  <!---- <div [hidden]="ISTableShow"> Thanks for purchasing from our Store {{ClintName}}</div>
+<div>
+    <button type="button" class="btn btn-primary d-block" (click)="toggletable()"> Buy <Table></Table></button>
+</div>
+
+<br>
+
+
+
+<div class="mb-3">
+    <label class="Form-label"> Enter Your Name </label>
+    <input type="text" [(ngModel)]=" ClintName"   class="form-control" placeholder="Your Name">
+    <h3> Your Name Is :{{ClintName}}</h3> 
+</div>
+<br>
+
+<div> THe Credit Code IS :  {{cardNamber |creditCard}}</div>
+  
+<br>
+
+  <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+      <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3" >
+          <div class="col" >
+              <div class="card h-100 shadow-sm" style="background-color: aqua;" ProductCard > 
+                 <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">ASUS Rog</span> <span class="float-end price-hp">12354.00€</span> </div>
+                      <h5 class="card-title">  Saepe, iste optio laudantium sed aliquam sequi.</h5>
+                      <div class="text-center my-4"> <a href="#" class="btn btn-success">Check offer</a> </div>
+
+                  </div>
+              </div> -->
+             
+            
+           
+            
+            

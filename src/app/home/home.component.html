@@ -1,0 +1,43 @@
+<div>
+    <h1> Our store Info:</h1>
+    <!-- Interpolation -->
+    <!-- Safe navigation Operator -->
+    <h2>Store Name: {{storeInfo?.Name}}</h2>
+  
+    <!-- <img src="{{storeInfo.imgURL}}" alt="image"> -->
+    <!-- Property Binding -->
+    <img [hidden]="!isImgShown" [src]="storeInfo.Logo" alt="logo">
+  
+    
+  
+    <!-- Structural Directives -->
+    <!-- <img *ngIf="isImgShown" [src]="storeInfo.imgURL" alt="logo"> -->
+  
+    <!-- Event Binding -->
+    <button type="button" class="btn btn-primary d-block" (click)="toggleImg()"> Toggle Image</button>
+  
+   
+ 
+    <br>
+    <hr>
+
+    <h2>Brancches:</h2>
+    <br>
+
+
+    <div class="container" style="background-color: white;" >
+        <table  class="table" style="background-color: white;">
+            <thead class="bg-dark" style="color: white;">
+              <tr >
+                <th scope="col">Branches</th> 
+              </tr> 
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of storeInfo?.branches " >
+                 <td>{{item}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+   
+  
